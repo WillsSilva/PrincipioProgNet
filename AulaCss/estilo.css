@@ -83,14 +83,55 @@ img {
   max-height: 160px;
 }
 
-.container {
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 20px auto;
+  background-color: white;
+}
 
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #333;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
 p{
   margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 h4{
   margin-bottom: 0px;
+}
+
+.cardDescricao{
+  box-shadow: 0 2px 8px 0 rgb(58, 58, 146);
+  transition: 0.3s;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+  width: 150px; /* Defina a largura desejada para os cards */
+  height: 250px;
+  min-width: 120px;
+  margin: 8px;
+}
+
+.DescricaoAtleta{
+  text-align: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
 }

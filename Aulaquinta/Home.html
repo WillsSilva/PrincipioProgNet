@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Gerenciador de Carros</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gerenciador de Carros Estacionados</h1>
+        <form id="carForm">
+            <label for="placa">Placa:</label>
+            <input type="text" id="placa" required>
+
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" required>
+
+            <label for="ano">Ano:</label>
+            <input type="text" id="ano" required>
+
+            <label for="cor">Cor:</label>
+            <input type="text" id="cor" required>
+
+            <label for="vaga">Vaga:</label>
+            <input type="text" id="vaga" required>
+
+            <button type="button" onclick="cadastrarCarro()">Cadastrar</button>
+        </form>
+
+        <h2>Lista de Carros Estacionados</h2>
+        <ul id="carList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
