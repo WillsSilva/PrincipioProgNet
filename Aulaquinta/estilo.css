@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 50px auto;
     background-color: #fff;
     padding: 20px;
@@ -42,3 +42,19 @@ button:hover {
 h2 {
     margin-top: 20px;
 }
+
+.btn-group {
+    display: inline-block;
+    float: right;
+}
+.btn-group button {
+    padding: 3px;
+    margin-left: 5px;
+}
+
+#carList li {
+    margin-bottom: 20px;
+}
+  
+  
+  

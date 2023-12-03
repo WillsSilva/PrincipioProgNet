@@ -8,7 +8,13 @@ function cadastrarCarro() {
     const cor = document.getElementById('cor').value;
     const vaga = document.getElementById('vaga').value;
 
-    if (placa != ''){
+    if (placa !== '' ) {
+        const carroNaMesmaVaga = carros.find(carro => carro.vaga === vaga);
+        if (carroNaMesmaVaga) {
+            alert("Já existe um carro nesta vaga!");
+            return;
+        }
+
         const carro = {
             placa: placa,
             modelo: modelo,
@@ -20,9 +26,11 @@ function cadastrarCarro() {
         carros.push(carro);
         exibirCarros();
         limparFormulario();
+    } else {
+        alert("Dados do carro inválidos!!");
     }
-    else alert ("Dados do carro invalidos!!");
 }
+
 
 function exibirCarros() {
     const carList = document.getElementById('carList');
@@ -30,7 +38,7 @@ function exibirCarros() {
 
     carros.forEach((carro, index) => {
         const listItem = document.createElement('li');
-        listItem.innerHTML = `<strong>${carro.modelo}</strong> - Placa: ${carro.placa}, Ano: ${carro.ano}, Cor: ${carro.cor}, Vaga: ${carro.vaga} <button onclick="removerCarro(${index})">Remover</button> <button onclick="removerCarro(${index})">Editar</button>`;
+        listItem.innerHTML = `<strong>${carro.modelo}</strong> - Placa: ${carro.placa}, Ano: ${carro.ano}, Cor: ${carro.cor}, Vaga: ${carro.vaga} <span class="btn-group"><button onclick="removerCarro(${index})">Remover</button> <button onclick="editarCarro(${index})">Editar</button></span>`;
         carList.appendChild(listItem);
     });
 }
@@ -39,6 +47,22 @@ function removerCarro(index) {
     carros.splice(index, 1);
     exibirCarros();
 }
+
+function editarCarro(index) {
+    const carroSelecionado = carros[index];
+    
+    // Preencher o formulário com os dados do carro selecionado
+    document.getElementById('placa').value = carroSelecionado.placa;
+    document.getElementById('modelo').value = carroSelecionado.modelo;
+    document.getElementById('ano').value = carroSelecionado.ano;
+    document.getElementById('cor').value = carroSelecionado.cor;
+    document.getElementById('vaga').value = carroSelecionado.vaga;
+    
+    // Remover o carro da lista para atualizar após edição
+    carros.splice(index, 1);
+    exibirCarros();
+}
+
 
 function limparFormulario() {
     document.getElementById('carForm').reset();
