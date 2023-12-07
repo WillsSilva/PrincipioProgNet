@@ -8,7 +8,7 @@ function cadastrarCarro() {
     const cor = document.getElementById('cor').value;
     const vaga = document.getElementById('vaga').value;
 
-    if (placa !== '' ) {
+    if (!(!placa || !modelo || !ano || !vaga || !cor)) {
         const carroNaMesmaVaga = carros.find(carro => carro.vaga === vaga);
         if (carroNaMesmaVaga) {
             alert("Já existe um carro nesta vaga!");
@@ -27,10 +27,9 @@ function cadastrarCarro() {
         exibirCarros();
         limparFormulario();
     } else {
-        alert("Dados do carro inválidos!!");
+        alert("Preencha todos os campos!!");
     }
 }
-
 
 function exibirCarros() {
     const carList = document.getElementById('carList');
@@ -51,14 +50,12 @@ function removerCarro(index) {
 function editarCarro(index) {
     const carroSelecionado = carros[index];
     
-    // Preencher o formulário com os dados do carro selecionado
     document.getElementById('placa').value = carroSelecionado.placa;
     document.getElementById('modelo').value = carroSelecionado.modelo;
     document.getElementById('ano').value = carroSelecionado.ano;
     document.getElementById('cor').value = carroSelecionado.cor;
     document.getElementById('vaga').value = carroSelecionado.vaga;
-    
-    // Remover o carro da lista para atualizar após edição
+
     carros.splice(index, 1);
     exibirCarros();
 }
